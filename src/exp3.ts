@@ -1,17 +1,17 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-// Função para ler o conteúdo de um arquivo
+// Ler arquivo
 function readFile(filePath: string): string {
     return fs.readFileSync(filePath, 'utf-8');
 }
 
-// Função para escrever em um arquivo
+// escrever 
 function writeFile(filePath: string, content: string): void {
     fs.writeFileSync(filePath, content, 'utf-8');
 }
 
-// Implementação do Quick Sort
+// Quick Sort
 function quickSort(arr: string[]): string[] {
     if (arr.length <= 1) {
         return arr;
@@ -37,21 +37,21 @@ function processFile(inputFilePath: string): void {
     // Lê o conteúdo do arquivo de entrada
     const content = readFile(inputFilePath);0
 
-    // Divide o conteúdo em palavras
+    // Divide o conteudo
     const words = content.split(/\s+/).filter(word => word.trim() !== '');
 
-    // Ordena as palavras usando Quick Sort
+    // Ordena as palavrast
     const sortedWords = quickSort(words);
 
-    // Gera o nome do arquivo de saída
+    // Gera o nome do arquivo
     const outputFilePath = path.basename(inputFilePath, path.extname(inputFilePath)) + '_ord.txt';
 
-    // Escreve as palavras ordenadas no arquivo de saída
+    // Escreve as palavras ordenadas no arquivo
     writeFile(outputFilePath, sortedWords.join('\n'));
 
     console.log(`Arquivo processado com sucesso! Saída: ${outputFilePath}`);
 }
 
-// Exemplo de uso
+// uso
 const inputFilePath = 'arquivo.txt'; // Substitua pelo caminho do arquivo de entrada
 processFile(inputFilePath);
